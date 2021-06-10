@@ -111,7 +111,7 @@ public class GrupoInterfaz extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "ID", "Descripción", "Disponibilidad", "Miembro"
+                "ID", "Descripción", "Disponibilidad", "Miembros"
             }
         ) {
             boolean[] canEdit = new boolean [] {
