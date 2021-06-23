@@ -23,7 +23,6 @@ public class GestFrog {
         // TODO code application logic heretry {
         UsuarioMenu panel2 = new UsuarioMenu();
         Menu panel1 = new Menu();
-        TareaInterfaz panelGroup=new TareaInterfaz();
         panel1.setVisible(true);
         try {
             Thread.sleep(2000);

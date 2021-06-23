@@ -9,6 +9,7 @@ import java.awt.Image;
 import java.awt.event.KeyEvent;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -30,6 +31,7 @@ public class UsuarioMenu extends javax.swing.JFrame {
         this.repaint();
 
     }
+    Metodos_SQL metodos = new Metodos_SQL();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -43,6 +45,8 @@ public class UsuarioMenu extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jTextField1 = new javax.swing.JTextField();
         jPasswordField1 = new javax.swing.JPasswordField();
+        jButton1 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -65,6 +69,22 @@ public class UsuarioMenu extends javax.swing.JFrame {
         jPanel1.add(jPasswordField1);
         jPasswordField1.setBounds(320, 520, 310, 40);
 
+        jButton1.setBackground(new java.awt.Color(0, 204, 204));
+        jButton1.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
+        jButton1.setText("REGISTRARSE");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1);
+        jButton1.setBounds(400, 620, 140, 40);
+
+        jLabel2.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
+        jLabel2.setText("¿No tienes una cuenta?");
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(350, 580, 260, 40);
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Pantalla usuario gestfrog.png"))); // NOI18N
         jPanel1.add(jLabel1);
         jLabel1.setBounds(0, 0, 800, 800);
@@ -73,11 +93,11 @@ public class UsuarioMenu extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 798, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 798, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 798, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 803, Short.MAX_VALUE)
         );
 
         pack();
@@ -88,17 +108,31 @@ public class UsuarioMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jPasswordField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordField1KeyPressed
-       if(evt.getKeyCode()== KeyEvent.VK_ENTER){
-           Principal panelP=new Principal();
-           panelP.setVisible(true);
-           setVisible(false);
-       }
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+
+            String busqueda_usuarioR = metodos.buscarUsuarioRegistrado(jTextField1.getText(), jPasswordField1.getText());
+            if (busqueda_usuarioR.equals("Usuario encontrado")) {
+                String busqueda_usuario = metodos.buscarUsuario(jTextField1.getText());
+                Principal panelP = new Principal();
+                panelP.setVisible(true);
+                setVisible(false);
+            } else {
+                JOptionPane.showMessageDialog(this, "Usuario No encontrado");
+            }
+        }
 
     }//GEN-LAST:event_jPasswordField1KeyPressed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        RegistarUsuario panelR = new RegistarUsuario();
+        panelR.setVisible(true);
+           setVisible(false);    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextField1;

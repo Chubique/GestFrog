@@ -5,6 +5,8 @@
  */
 package gestfrog;
 
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author luisf
@@ -14,10 +16,36 @@ public class GrupoInterfaz extends javax.swing.JFrame {
     /**
      * Creates new form Grupos
      */
+    Metodos_SQL metodos = new Metodos_SQL();
+    int i, j = 0, tamaño = 0;
+
     public GrupoInterfaz() {
         initComponents();
         setResizable(false);
-        setSize(979,640);
+        setSize(979, 640);
+
+        metodos.actualizarTamañoGrupo();
+        i = metodos.getTamañoTablaGrupo();
+
+        if (i == -1) {
+            i = 0;
+            System.out.println("es 0");
+        }
+        tamaño = i;
+
+        for (i = 0; i < tamaño; i++) {
+
+            metodos.buscarGrupo(i);
+            j = 0;
+            jTable1.setValueAt(metodos.busqueda_desc, i, j);
+            j++;
+            jTable1.setValueAt(metodos.busqueda_usuarios, i, j);
+            j++;
+            jTable1.setValueAt(metodos.busqueda_disp, i, j);
+            j++;
+
+        }
+
     }
 
     /**
@@ -33,18 +61,11 @@ public class GrupoInterfaz extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jInternalFrame1 = new javax.swing.JInternalFrame();
         jPanel3 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
-        jMenu4 = new javax.swing.JMenu();
-        jMenu5 = new javax.swing.JMenu();
-        jLabel5 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jButton3 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
@@ -84,12 +105,10 @@ public class GrupoInterfaz extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(204, 204, 204));
 
-        jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel3.setText("Nuevo grupo");
-
         jTable1.setBackground(new java.awt.Color(204, 204, 204));
         jTable1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jTable1.setForeground(new java.awt.Color(204, 204, 204));
+        jTable1.setForeground(new java.awt.Color(153, 153, 153));
+
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -111,73 +130,67 @@ public class GrupoInterfaz extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "ID", "Descripción", "Disponibilidad", "Miembros"
+                "Descripción", "Miembros", "Disponibilidad", "id"
             }
         ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.Boolean.class, java.lang.Integer.class
+            };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false
             };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
         jTable1.setGridColor(new java.awt.Color(204, 204, 204));
-        jTable1.setSelectionForeground(new java.awt.Color(204, 204, 204));
+        jTable1.setSelectionBackground(new java.awt.Color(0, 153, 153));
+        jTable1.setSelectionForeground(new java.awt.Color(153, 153, 153));
         jScrollPane1.setViewportView(jTable1);
+
+        jButton1.setText("Nuevo grupo");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Borrar grupo");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 847, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addComponent(jLabel3))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 847, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jButton1)
+                        .addGap(45, 45, 45)
+                        .addComponent(jButton2)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jLabel3)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
-
-        jMenuBar1.setBackground(new java.awt.Color(255, 204, 204));
-        jMenuBar1.setBorder(null);
-
-        jMenu1.setForeground(new java.awt.Color(255, 153, 102));
-        jMenu1.setText("File");
-        jMenu1.setFont(new java.awt.Font("Comic Sans MS", 1, 15)); // NOI18N
-        jMenuBar1.add(jMenu1);
-
-        jMenu2.setForeground(new java.awt.Color(255, 153, 102));
-        jMenu2.setText("Edit");
-        jMenu2.setFont(new java.awt.Font("Comic Sans MS", 1, 15)); // NOI18N
-        jMenuBar1.add(jMenu2);
-
-        jMenu3.setForeground(new java.awt.Color(255, 153, 51));
-        jMenu3.setText("Format");
-        jMenu3.setFont(new java.awt.Font("Comic Sans MS", 1, 15)); // NOI18N
-        jMenuBar1.add(jMenu3);
-
-        jMenu4.setForeground(new java.awt.Color(255, 153, 51));
-        jMenu4.setText("View ");
-        jMenu4.setFont(new java.awt.Font("Comic Sans MS", 1, 15)); // NOI18N
-        jMenuBar1.add(jMenu4);
-
-        jMenu5.setForeground(new java.awt.Color(255, 153, 51));
-        jMenu5.setText("Help");
-        jMenu5.setFont(new java.awt.Font("Comic Sans MS", 1, 15)); // NOI18N
-        jMenuBar1.add(jMenu5);
-
-        jInternalFrame1.setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout jInternalFrame1Layout = new javax.swing.GroupLayout(jInternalFrame1.getContentPane());
         jInternalFrame1.getContentPane().setLayout(jInternalFrame1Layout);
@@ -204,26 +217,6 @@ public class GrupoInterfaz extends javax.swing.JFrame {
         getContentPane().add(jLabel5);
         jLabel5.setBounds(20, 0, 150, 40);
 
-        jButton1.setBackground(new java.awt.Color(51, 0, 153));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/configBoton2.png"))); // NOI18N
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton1);
-        jButton1.setBounds(930, 0, 30, 40);
-
-        jButton2.setBackground(new java.awt.Color(51, 0, 153));
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/configBoton.png"))); // NOI18N
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton2);
-        jButton2.setBounds(880, 0, 50, 40);
-
         jPanel4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel4.setLayout(null);
 
@@ -249,21 +242,26 @@ public class GrupoInterfaz extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+
+        Principal principalPanel = new Principal();
+        principalPanel.setVisible(true);
+        setVisible(false);
+
+
+    }//GEN-LAST:event_jButton3ActionPerformed
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        RegistarGrupo principalPanel = new RegistarGrupo();
+        principalPanel.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        
+        DefaultTableModel dtm = (DefaultTableModel) jTable1.getModel();
+        dtm.removeRow(jTable1.getSelectedRow());
     }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-
-           Principal principalPanel=new Principal();
-           principalPanel.setVisible(true);
-           setVisible(false);
- 
-    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -309,19 +307,12 @@ public class GrupoInterfaz extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    public javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

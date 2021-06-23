@@ -16,12 +16,13 @@ public class Principal extends javax.swing.JFrame {
     /**
      * Creates new form Principal
      */
-    boolean presionado = false;
+                   boolean presionado=false;
 
     public Principal() {
         initComponents();
         setResizable(false);
-        setSize(1250, 800);
+        setSize(1250,800);
+        
     }
 
     /**
@@ -49,19 +50,13 @@ public class Principal extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jInternalFrame1 = new javax.swing.JInternalFrame();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu2 = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
-        jMenu4 = new javax.swing.JMenu();
-        jMenu5 = new javax.swing.JMenu();
-        jMenu6 = new javax.swing.JMenu();
         jPanel4 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
-        jToggleButton1 = new javax.swing.JToggleButton();
         jButton2 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
 
         jMenu1.setText("jMenu1");
@@ -192,35 +187,6 @@ public class Principal extends javax.swing.JFrame {
         jInternalFrame1.setBackground(new java.awt.Color(255, 255, 255));
         jInternalFrame1.setVisible(true);
 
-        jMenuBar1.setBackground(new java.awt.Color(255, 204, 204));
-
-        jMenu2.setForeground(new java.awt.Color(255, 153, 51));
-        jMenu2.setText("File");
-        jMenu2.setFont(new java.awt.Font("Comic Sans MS", 1, 15)); // NOI18N
-        jMenuBar1.add(jMenu2);
-
-        jMenu3.setForeground(new java.awt.Color(255, 153, 51));
-        jMenu3.setText("Edit");
-        jMenu3.setFont(new java.awt.Font("Comic Sans MS", 1, 15)); // NOI18N
-        jMenuBar1.add(jMenu3);
-
-        jMenu4.setForeground(new java.awt.Color(255, 153, 51));
-        jMenu4.setText("Format");
-        jMenu4.setFont(new java.awt.Font("Comic Sans MS", 1, 15)); // NOI18N
-        jMenuBar1.add(jMenu4);
-
-        jMenu5.setForeground(new java.awt.Color(255, 153, 51));
-        jMenu5.setText("View");
-        jMenu5.setFont(new java.awt.Font("Comic Sans MS", 1, 15)); // NOI18N
-        jMenuBar1.add(jMenu5);
-
-        jMenu6.setForeground(new java.awt.Color(255, 153, 51));
-        jMenu6.setText("Help");
-        jMenu6.setFont(new java.awt.Font("Comic Sans MS", 1, 15)); // NOI18N
-        jMenuBar1.add(jMenu6);
-
-        jInternalFrame1.setJMenuBar(jMenuBar1);
-
         javax.swing.GroupLayout jInternalFrame1Layout = new javax.swing.GroupLayout(jInternalFrame1.getContentPane());
         jInternalFrame1.getContentPane().setLayout(jInternalFrame1Layout);
         jInternalFrame1Layout.setHorizontalGroup(
@@ -229,7 +195,7 @@ public class Principal extends javax.swing.JFrame {
         );
         jInternalFrame1Layout.setVerticalGroup(
             jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 418, Short.MAX_VALUE)
+            .addGap(0, 444, Short.MAX_VALUE)
         );
 
         getContentPane().add(jInternalFrame1);
@@ -260,30 +226,7 @@ public class Principal extends javax.swing.JFrame {
         getContentPane().add(jPanel4);
         jPanel4.setBounds(240, 570, 950, 170);
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/configBoton2.png"))); // NOI18N
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton3);
-        jButton3.setBounds(1210, 0, 30, 30);
-
-        jToggleButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/configBoton.png"))); // NOI18N
-        jToggleButton1.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                jToggleButton1StateChanged(evt);
-            }
-        });
-        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jToggleButton1);
-        jToggleButton1.setBounds(1160, 0, 40, 40);
-
-        jButton2.setBackground(new java.awt.Color(0, 102, 102));
+        jButton2.setBackground(new java.awt.Color(0, 153, 153));
         jButton2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jButton2.setText("Tareas");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -292,25 +235,45 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton2);
-        jButton2.setBounds(1070, 0, 90, 30);
+        jButton2.setBounds(1050, 0, 90, 30);
+
+        jButton6.setBackground(new java.awt.Color(0, 153, 153));
+        jButton6.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jButton6.setText("Grupos");
+        jButton6.setBorder(null);
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton6);
+        jButton6.setBounds(950, 0, 100, 30);
+
+        jButton3.setBackground(new java.awt.Color(0, 153, 153));
+        jButton3.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jButton3.setText("Proyectos");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton3);
+        jButton3.setBounds(1140, 0, 100, 30);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/FondoPrincipal1.png"))); // NOI18N
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(-10, -10, 1300, 770);
 
         jButton4.setBackground(new java.awt.Color(0, 102, 102));
         jButton4.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jButton4.setText("Grupos");
-        jButton4.setMaximumSize(new java.awt.Dimension(77, 25));
-        jButton4.setMinimumSize(new java.awt.Dimension(77, 25));
-        jButton4.setPreferredSize(new java.awt.Dimension(77, 25));
+        jButton4.setText("Tareas");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
             }
         });
         getContentPane().add(jButton4);
-        jButton4.setBounds(980, 0, 90, 30);
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/FondoPrincipal1.png"))); // NOI18N
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(-10, -10, 1300, 770);
+        jButton4.setBounds(1070, 0, 90, 30);
 
         jButton5.setBackground(new java.awt.Color(0, 102, 102));
         jButton5.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -334,36 +297,34 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
-
-    }//GEN-LAST:event_jToggleButton1ActionPerformed
-
-    private void jToggleButton1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jToggleButton1StateChanged
-
-    }//GEN-LAST:event_jToggleButton1StateChanged
-
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 
-        TareaInterfaz panelGroup = new TareaInterfaz();
-        panelGroup.setVisible(true);
-        setVisible(false);
-
+           TareaInterfaz panelTarea=new TareaInterfaz();
+           panelTarea.setVisible(true);
+           setVisible(false);
+ 
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        GrupoInterfaz panelGroup = new GrupoInterfaz();
-        panelGroup.setVisible(true);
-        setVisible(false);
+        // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+           GrupoInterfaz panelGroup=new GrupoInterfaz();
+           panelGroup.setVisible(true);
+           setVisible(false);
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+CreaProyectos panelProyect=new CreaProyectos();
+panelProyect.setVisible(true);
+setVisible(false);
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -406,6 +367,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -415,21 +377,14 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu10;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
     private javax.swing.JMenu jMenu8;
     private javax.swing.JMenu jMenu9;
-    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JToggleButton jToggleButton1;
     // End of variables declaration//GEN-END:variables
 }

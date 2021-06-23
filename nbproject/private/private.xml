@@ -3,7 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Oscar%20Alejandro/Documents/NetBeansProjects/GestFrog/src/gestfrog/Principal.java</file>
+            <file>file:/C:/Users/Oscar%20Alejandro/Documents/NetBeansProjects/GestFrog/src/gestfrog/Metodos_SQL.java</file>
+            <file>file:/C:/Users/Oscar%20Alejandro/Documents/NetBeansProjects/GestFrog/src/gestfrog/RegistarGrupo.java</file>
+            <file>file:/C:/Users/Oscar%20Alejandro/Documents/NetBeansProjects/GestFrog/src/gestfrog/UsuarioMenu.java</file>
+            <file>file:/C:/Users/Oscar%20Alejandro/Documents/NetBeansProjects/GestFrog/src/gestfrog/RegistarTarea.java</file>
+            <file>file:/C:/Users/Oscar%20Alejandro/Documents/NetBeansProjects/GestFrog/src/gestfrog/RegistarUsuario.java</file>
+            <file>file:/C:/Users/Oscar%20Alejandro/Documents/NetBeansProjects/GestFrog/src/gestfrog/GrupoInterfaz.java</file>
         </group>
     </open-files>
 </project-private>

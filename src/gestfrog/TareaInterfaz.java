@@ -17,7 +17,7 @@ public class TareaInterfaz extends javax.swing.JFrame {
     public TareaInterfaz() {
         initComponents();
         setResizable(false);
-        setSize(979,640);
+        setSize(979, 640);
     }
 
     /**
@@ -35,18 +35,10 @@ public class TareaInterfaz extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
-        jMenu4 = new javax.swing.JMenu();
-        jMenu5 = new javax.swing.JMenu();
-        jLabel5 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jButton3 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
@@ -105,39 +97,36 @@ public class TareaInterfaz extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(204, 204, 204));
 
-        jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel3.setText("Nueva tarea");
-
         jTable1.setBackground(new java.awt.Color(204, 204, 204));
         jTable1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jTable1.setForeground(new java.awt.Color(204, 204, 204));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "ID", "Tarea", "Miembro", "Estado", "Fecha"
+                "Tarea", "Miembro", "Estado", "Fecha"
             }
         ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
@@ -147,58 +136,32 @@ public class TareaInterfaz extends javax.swing.JFrame {
         jTable1.setSelectionForeground(new java.awt.Color(204, 204, 204));
         jScrollPane1.setViewportView(jTable1);
 
+        jButton1.setText("Nueva tarea");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addComponent(jLabel3))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 641, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 641, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1))
                 .addContainerGap(18, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jLabel3)
+                .addComponent(jButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
-
-        jMenuBar1.setBackground(new java.awt.Color(255, 204, 204));
-        jMenuBar1.setBorder(null);
-
-        jMenu1.setForeground(new java.awt.Color(255, 153, 102));
-        jMenu1.setText("File");
-        jMenu1.setFont(new java.awt.Font("Comic Sans MS", 1, 15)); // NOI18N
-        jMenuBar1.add(jMenu1);
-
-        jMenu2.setForeground(new java.awt.Color(255, 153, 102));
-        jMenu2.setText("Edit");
-        jMenu2.setFont(new java.awt.Font("Comic Sans MS", 1, 15)); // NOI18N
-        jMenuBar1.add(jMenu2);
-
-        jMenu3.setForeground(new java.awt.Color(255, 153, 51));
-        jMenu3.setText("Format");
-        jMenu3.setFont(new java.awt.Font("Comic Sans MS", 1, 15)); // NOI18N
-        jMenuBar1.add(jMenu3);
-
-        jMenu4.setForeground(new java.awt.Color(255, 153, 51));
-        jMenu4.setText("View ");
-        jMenu4.setFont(new java.awt.Font("Comic Sans MS", 1, 15)); // NOI18N
-        jMenuBar1.add(jMenu4);
-
-        jMenu5.setForeground(new java.awt.Color(255, 153, 51));
-        jMenu5.setText("Help");
-        jMenu5.setFont(new java.awt.Font("Comic Sans MS", 1, 15)); // NOI18N
-        jMenuBar1.add(jMenu5);
-
-        jInternalFrame1.setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout jInternalFrame1Layout = new javax.swing.GroupLayout(jInternalFrame1.getContentPane());
         jInternalFrame1.getContentPane().setLayout(jInternalFrame1Layout);
@@ -218,7 +181,7 @@ public class TareaInterfaz extends javax.swing.JFrame {
                 .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jInternalFrame1Layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 2, Short.MAX_VALUE))
+                        .addGap(0, 26, Short.MAX_VALUE))
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -230,26 +193,6 @@ public class TareaInterfaz extends javax.swing.JFrame {
         jLabel5.setText("jLabel5");
         getContentPane().add(jLabel5);
         jLabel5.setBounds(20, 0, 150, 40);
-
-        jButton1.setBackground(new java.awt.Color(51, 0, 153));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/configBoton2.png"))); // NOI18N
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton1);
-        jButton1.setBounds(930, 0, 30, 40);
-
-        jButton2.setBackground(new java.awt.Color(51, 0, 153));
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/configBoton.png"))); // NOI18N
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton2);
-        jButton2.setBounds(880, 0, 50, 40);
 
         jPanel4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel4.setLayout(null);
@@ -276,21 +219,19 @@ public class TareaInterfaz extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
-
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
 
-           Principal principalPanel=new Principal();
-           principalPanel.setVisible(true);
-           setVisible(false);
- 
+        Principal principalPanel = new Principal();
+        principalPanel.setVisible(true);
+        setVisible(false);
+
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        RegistarTarea principalPanel = new RegistarTarea();
+        principalPanel.setVisible(true);
+       
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -330,20 +271,12 @@ public class TareaInterfaz extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
